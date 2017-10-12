@@ -1,0 +1,369 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: white;
+    font-family: Lato, Arial, sans-serif;
+    font-weight: bold;
+    animation: change-colors 4s linear infinite alternate-reverse;
+}
+
+[class*='__text'] {
+    min-width: 300px;
+    font-size: 2rem;
+    color: rgb(110, 110, 110);
+    text-transform: uppercase;
+    margin-right: 15rem;
+    margin-left: 5rem;
+    position: relative;
+    top: 2rem;
+}
+
+.splitter {
+    min-width: 1px;
+    animation: split 3s linear 6s;
+}
+
+[class*='__shape'] {
+    min-width: 100px;
+}
+
+.container {
+    width: 1000px;
+    height: 100vh;
+    margin: 0 auto;
+    background: white;
+    padding: 8rem 4rem;
+    overflow: hidden;
+}
+
+.star, .rect, .hex, .circle {
+    display: flex;
+    margin: 2rem;
+    margin-top: 0;
+}
+
+.star {
+    animation: entrance 6s linear, move-left 3s linear 9s alternate-reverse;
+}
+
+.rect {
+    animation: entrance 5s linear, move-right 3s linear 9s alternate-reverse;
+}
+
+.hex {
+    animation: entrance 4s linear, move-left 3s linear 9s alternate-reverse;
+}
+
+.circle {
+    animation: entrance 3s linear, move-right 3s linear 9s alternate-reverse;
+}
+
+.star__shape {
+    background: url('images/candies.jpg');
+    background-position: 50% 50%;
+    width: 100px;
+    height: 100px;
+    -webkit-clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    animation: play-star 3s linear infinite alternate-reverse, rotate 3s linear 9s alternate-reverse;
+}
+
+.rect__shape {
+    background: url('images/candies.jpg');
+    background-position: 50% 70%;
+    width: 100px;
+    height: 100px;
+    animation: play-rect 3s linear infinite alternate-reverse, rotate-reverse 3s linear 9s alternate-reverse;
+}
+
+.hex__shape {
+    background: url('images/candies.jpg');
+    background-position: 75% 50%;
+    width: 100px;
+    height: 100px;
+    -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    animation: play-hex 3s linear infinite alternate-reverse, rotate 3s linear 9s alternate-reverse;
+}
+
+.circle__shape {
+    background: url('images/candies.jpg');
+    background-position: 75% 85%;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    animation: play-circle 3s linear infinite alternate-reverse, rotate-reverse 3s linear 9s alternate-reverse;
+}
+
+.star__text {
+    animation: split-text 3s linear 6s, resize 3s linear 12s, fly-away 9s linear 15s, rotate-text 3s linear 27s, fade 4s linear 30s;
+}
+
+.rect__text {
+    animation: split-text 3s linear 6s, resize 3s linear 12s, fly-away 9s linear 16s, rotate-text 3s linear 27s, fade 4s linear 30s;
+}
+
+.hex__text {
+    animation: split-text 3s linear 6s, resize 3s linear 12s, fly-away 9s linear 17s, rotate-text 3s linear 27s, fade 4s linear 30s;
+}
+
+.circle__text {
+    animation: split-text 3s linear 6s, resize 3s linear 12s, fly-away 9s linear 18s, rotate-text 3s linear 27s, fade 4s linear 30s;
+}
+
+.refresh {
+    position: relative;
+    left: 44%;
+    bottom: -10%;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(95, 34, 95);
+}
+
+a:hover {
+    color: rgb(153, 54, 153);
+}
+
+/* Backgorund animation */
+
+@keyframes change-colors {
+    0% {
+        background-color: rgb(37, 202, 51);
+    }
+    100% {
+        background-color: rgb(26, 132, 202);
+    }
+}
+
+/* First stage */
+
+@keyframes entrance {
+    0% {
+        transform: translateY(-900px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Second stage */
+
+@keyframes split {
+    0% {
+        margin-left: 0;
+    }
+    50% {
+        margin-left: 350px;
+    }
+    100% {
+        margin-left: 0;
+    }
+}
+
+
+@keyframes split-text {
+    0% {
+        margin-left: 5rem;
+    }
+    50% {
+        margin-left: -90px;
+    }
+    100% {
+        margin-left: 5rem;
+    }
+}
+
+/* Third stage */
+
+@keyframes play-star {
+    0% {
+        background-position: 50% 50%;
+    }
+    100% {
+        background-position: 25% 75%;
+    }
+}
+
+@keyframes play-rect {
+    0% {
+        background-position: 75% 50%;
+    }
+    100% {
+        background-position: 75% 65%;
+    }
+}
+
+@keyframes play-hex {
+    0% {
+        background-position: 50% 70%;
+    }
+    100% {
+        background-position: 25% 30%;
+    }
+}
+
+@keyframes play-circle {
+    0% {
+        background-position: 75% 85%;
+    }
+    100% {
+        background-position: 45% 45%;
+    }
+}
+
+/* Fourth satge */
+
+@keyframes move-left {
+    0% {
+        margin-left: 2rem
+    }
+    50% {
+        margin-left: -6rem;
+    }
+    100% {
+        margin-left: 2rem;
+    }
+}
+
+@keyframes move-right {
+    0% {
+        margin-left: 2rem
+    }
+    50% {
+        margin-left: 8rem;
+    }
+    100% {
+        margin-left: 2rem;
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0);
+        transform-origin: center;
+    }
+    50% {
+        transform: rotate(180deg);
+        transform-origin: center;
+    }
+    100% {
+        transform: rotate(0);
+        transform-origin: center;
+    }
+}
+
+@keyframes rotate-reverse {
+    0% {
+        transform: rotate(0);
+        transform-origin: center;
+    }
+    50% {
+        transform: rotate(-180deg);
+        transform-origin: center;
+    }
+    100% {
+        transform: rotate(0);
+        transform-origin: center;
+    }
+}
+
+/* Fifth satge */
+
+@keyframes resize {
+    0% {
+        font-size: 2rem;
+    }
+    50% {
+        font-size: 0rem;
+    }
+    100% {
+        font-size: 2rem;
+    }
+}
+
+@keyframes fly-away {
+    0% {
+        color: rgb(110, 110, 110);;
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+    12.5% {
+        color:rgb(224, 68, 97);
+        position: relative;
+        top: -200px;
+        left: 100px;
+    }
+    25% {
+        color:rgb(214, 224, 68);
+        position: relative;
+        top: -400px;
+        left: 200px;
+    }
+    37.5% {
+        color:rgb(112, 224, 68);
+        position: relative;
+        top: -600px;
+        left: 300px;
+    }
+    50% {
+        color:rgb(68, 188, 224);
+        position: relative;
+        top: -800px;
+        left: 400px;
+    }
+    62.5% {
+        color:rgb(84, 68, 224);
+        position: relative;
+        top: -600px;
+        left: 300px;
+    }
+    75% {
+        color:rgb(211, 68, 224);
+        position: relative;
+        top: -400px;
+        left: 200px;
+    }
+    87.5% {
+        color:rgb(224, 68, 97);
+        position: relative;
+        top: -200px;
+        left: 100px;
+    }
+    100% {
+        color: nrgb(110, 110, 110);
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+}
+
+@keyframes rotate-text {
+    0% {
+        transform: rotateX(0);
+    }
+    100% {
+        transform: rotateX(360deg);
+    }
+}
+
+/* Sixth satge */
+
+@keyframes fade {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+        transform: scaleX(0.1);
+    }
+    100% {
+        opacity: 1;
+    }
+}
