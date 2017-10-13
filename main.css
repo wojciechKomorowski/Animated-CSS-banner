@@ -36,7 +36,7 @@ body {
     height: 100vh;
     margin: 0 auto;
     background: white;
-    padding: 8rem 4rem;
+    padding: 7rem 4rem 6rem 4rem;
     overflow: hidden;
 }
 
@@ -116,9 +116,9 @@ body {
 }
 
 .refresh {
-    position: relative;
-    left: 44%;
-    bottom: -10%;
+    position: fixed;
+    left: 45%;
+    bottom: 2.5%;
 }
 
 a {
